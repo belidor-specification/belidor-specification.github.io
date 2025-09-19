@@ -1,0 +1,674 @@
+{
+  "case-study-web-browser": {
+    "yaml": [
+      { "webpages": { "group foreach": ["(gui) /view"] } },
+      {
+        "(gui) tabs-view": {
+          "/marks.text <>": [
+            "webpages.open",
+            {
+              "(action) change-tab": {
+                "update": ["webpages.open.active", "subset>", "webpages.open"]
+              }
+            }
+          ],
+          "/encoding.hstack <>": {
+            "(linear) tab-order": { "affects": "webpages.open" }
+          }
+        }
+      },
+      { "(gui) main-view": { "/marks <>": "webpages.open.active/view" } }
+    ],
+    "lookup": [
+      ["webpages", [0, ["__KEY", "webpages"]]],
+      ["group foreach", [0, "webpages", ["__KEY", "group foreach"]]],
+      ["webpages/view", [0, "webpages", "group foreach", 0]],
+      ["tabs-view", [1, ["__KEY", "(gui) tabs-view"]]],
+      [
+        "tabs-view/marks.text",
+        [1, "(gui) tabs-view", ["__KEY", "/marks.text <>"]]
+      ],
+      ["webpages.open", [1, "(gui) tabs-view", "/marks.text <>", 0]],
+      [
+        "change-tab",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          ["__KEY", "(action) change-tab"]
+        ]
+      ],
+      [
+        "update",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          "(action) change-tab",
+          ["__KEY", "update"]
+        ]
+      ],
+      [
+        "webpages.open.active",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          "(action) change-tab",
+          "update",
+          0
+        ]
+      ],
+      [
+        "webpages.open",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          "(action) change-tab",
+          "update",
+          2
+        ]
+      ],
+      [
+        "tabs-view/encoding.hstack",
+        [1, "(gui) tabs-view", ["__KEY", "/encoding.hstack <>"]]
+      ],
+      [
+        "tab-order",
+        [
+          1,
+          "(gui) tabs-view",
+          "/encoding.hstack <>",
+          ["__KEY", "(linear) tab-order"]
+        ]
+      ],
+      [
+        "affects",
+        [
+          1,
+          "(gui) tabs-view",
+          "/encoding.hstack <>",
+          "(linear) tab-order",
+          ["__KEY", "affects"]
+        ]
+      ],
+      [
+        "webpages.open",
+        [
+          1,
+          "(gui) tabs-view",
+          "/encoding.hstack <>",
+          "(linear) tab-order",
+          "affects"
+        ]
+      ],
+      ["main-view", [2, ["__KEY", "(gui) main-view"]]],
+      ["main-view/marks", [2, "(gui) main-view", ["__KEY", "/marks <>"]]],
+      ["webpages.open.active/view", [2, "(gui) main-view", "/marks <>"]]
+    ]
+  },
+  "case-study-cad": {
+    "yaml": [
+      { "files": { "group foreach": ["(gui) /view"] } },
+      {
+        "(gui) tabs-view": {
+          "/marks.text <>": [
+            "files",
+            {
+              "(action) change-tab": {
+                "update": ["files.active", "subset>", "files"]
+              }
+            }
+          ],
+          "/encoding.hstack <>": {
+            "(linear) tab-order": { "affects": "files" }
+          }
+        }
+      },
+      { "(gui) main-view": { "/marks <>": "files.active/view" } }
+    ],
+    "lookup": [
+      ["files", [0, ["__KEY", "files"]]],
+      ["group foreach", [0, "files", ["__KEY", "group foreach"]]],
+      ["files/view", [0, "files", "group foreach", 0]],
+      ["tabs-view", [1, ["__KEY", "(gui) tabs-view"]]],
+      [
+        "tabs-view/marks.text",
+        [1, "(gui) tabs-view", ["__KEY", "/marks.text <>"]]
+      ],
+      ["files", [1, "(gui) tabs-view", "/marks.text <>", 0]],
+      [
+        "change-tab",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          ["__KEY", "(action) change-tab"]
+        ]
+      ],
+      [
+        "update",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          "(action) change-tab",
+          ["__KEY", "update"]
+        ]
+      ],
+      [
+        "files.active",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          "(action) change-tab",
+          "update",
+          0
+        ]
+      ],
+      [
+        "files",
+        [
+          1,
+          "(gui) tabs-view",
+          "/marks.text <>",
+          1,
+          "(action) change-tab",
+          "update",
+          2
+        ]
+      ],
+      [
+        "tabs-view/encoding.hstack",
+        [1, "(gui) tabs-view", ["__KEY", "/encoding.hstack <>"]]
+      ],
+      [
+        "tab-order",
+        [
+          1,
+          "(gui) tabs-view",
+          "/encoding.hstack <>",
+          ["__KEY", "(linear) tab-order"]
+        ]
+      ],
+      [
+        "affects",
+        [
+          1,
+          "(gui) tabs-view",
+          "/encoding.hstack <>",
+          "(linear) tab-order",
+          ["__KEY", "affects"]
+        ]
+      ],
+      [
+        "files",
+        [
+          1,
+          "(gui) tabs-view",
+          "/encoding.hstack <>",
+          "(linear) tab-order",
+          "affects"
+        ]
+      ],
+      ["main-view", [2, ["__KEY", "(gui) main-view"]]],
+      ["main-view/marks", [2, "(gui) main-view", ["__KEY", "/marks <>"]]],
+      ["files.active/view", [2, "(gui) main-view", "/marks <>"]]
+    ]
+  },
+  "case-study-calendar": {
+    "yaml": [
+      {
+        "(linear) time": {
+          "affects": "timestamps",
+          "cover": ["events", "days"]
+        }
+      },
+      { "timestamps": { "subset": "timestamps.now" } },
+      {
+        "(gui) week-view": {
+          "/marks.vline <>": "timestamps",
+          "/encodings.hstack <>": "time",
+          "/marks.rectangles <>": "events",
+          "/marks.cluster <>": "days",
+          "/marks.hitboxes <>": "move-event"
+        }
+      },
+      {
+        "(action) move-event": {
+          "update": ["time", "cover>", "events.selected"],
+          "directions": "time"
+        }
+      }
+    ],
+    "lookup": [
+      ["time", [0, ["__KEY", "(linear) time"]]],
+      ["affects", [0, "(linear) time", ["__KEY", "affects"]]],
+      ["timestamps", [0, "(linear) time", "affects"]],
+      ["covers", [0, "(linear) time", ["__KEY", "covers"]]],
+      ["events", [0, "(linear) time", "covers", 0]],
+      ["days", [0, "(linear) time", "covers", 1]],
+      ["timestamps", [1, ["__KEY", "timestamps"]]],
+      ["subset", [1, "timestamps", ["__KEY", "subset"]]],
+      ["timestamps.now", [1, "timestamps", "subset"]],
+      ["week-view", [2, ["__KEY", "(gui) week-view"]]],
+      [
+        "week-view/marks.vline",
+        [2, "(gui) week-view", ["__KEY", "/marks.vline <>"]]
+      ],
+      ["timestamps", [2, "(gui) week-view", "/marks.vline <>"]],
+      [
+        "week-view/encodings.hstack",
+        [2, "(gui) week-view", ["__KEY", "/encodings.hstack <>"]]
+      ],
+      ["time", [2, "(gui) week-view", "/encodings.hstack <>"]],
+      [
+        "week-view/marks.rectangles",
+        [2, "(gui) week-view", ["__KEY", "/marks.rectangles <>"]]
+      ],
+      ["events", [2, "(gui) week-view", "/marks.rectangles <>"]],
+      [
+        "week-view/marks.cluster",
+        [2, "(gui) week-view", ["__KEY", "/marks.cluster <>"]]
+      ],
+      ["days", [2, "(gui) week-view", "/marks.cluster <>"]],
+      [
+        "week-view/marks.hitboxes",
+        [2, "(gui) week-view", ["__KEY", "/marks.hitboxes <>"]]
+      ],
+      ["move-event", [2, "(gui) week-view", "/marks.hitboxes <>"]],
+      ["move-event", [3, ["__KEY", "(action) move-event"]]],
+      ["update", [3, "(action) move-event", ["__KEY", "update"]]],
+      ["time", [3, "(action) move-event", "update", 0]],
+      ["events.selected", [3, "(action) move-event", "update", 2]],
+      ["directions", [3, "(action) move-event", ["__KEY", "directions"]]],
+      ["time", [3, "(action) move-event", "directions"]]
+    ]
+  },
+  "case-study-figma": {
+    "yaml": [
+      { "(digraph) prototype-links": { "affects": "frames.in-prototype" } },
+      {
+        "(action) navigate-prototype": {
+          "update": ["frames.in-prototype.current", "subset>", "frames"],
+          "directions": "prototype-links"
+        }
+      },
+      {
+        "(gui) prototype-window": {
+          "/marks": "frames.in-prototype.current",
+          "/encoding.canvas": "(2D) canvas"
+        }
+      }
+    ],
+    "lookup": [
+      ["prototype-links", [0, ["__KEY", "(digraph) prototype-links"]]],
+      ["affects", [0, "(digraph) prototype-links", ["__KEY", "affects"]]],
+      ["frames.in-prototype", [0, "(digraph) prototype-links", "affects"]],
+      ["navigate-prototype", [1, ["__KEY", "(action) navigate-prototype"]]],
+      ["update", [1, "(action) navigate-prototype", ["__KEY", "update"]]],
+      [
+        "frames.in-prototype.current",
+        [1, "(action) navigate-prototype", "update", 0]
+      ],
+      ["frames", [1, "(action) navigate-prototype", "update", 2]],
+      [
+        "directions",
+        [1, "(action) navigate-prototype", ["__KEY", "directions"]]
+      ],
+      ["prototype-links", [1, "(action) navigate-prototype", "directions"]],
+      ["prototype-window", [2, ["__KEY", "(gui) prototype-window"]]],
+      [
+        "prototype-window/marks",
+        [2, "(gui) prototype-window", ["__KEY", "/marks"]]
+      ],
+      ["frames.in-prototype.current", [2, "(gui) prototype-window", "/marks"]],
+      [
+        "prototype-window/encoding.canvas",
+        [2, "(gui) prototype-window", ["__KEY", "/encoding.canvas"]]
+      ],
+      ["canvas", [2, "(gui) prototype-window", "/encoding.canvas"]]
+    ]
+  },
+  "case-study-ipad": {
+    "yaml": [
+      { "apps": { "group foreach": ["(gui) /view"] } },
+      {
+        "(gui) dock-view": {
+          "/marks.icons <>": [
+            "apps",
+            {
+              "(action) change-app": {
+                "update": ["apps.docked.active", "subset>", "apps.docked"]
+              }
+            }
+          ],
+          "/encoding.hstack <>": {
+            "(linear) dock-order": { "affects": "apps.docked" }
+          }
+        }
+      },
+      { "(gui) main-view": { "/marks <>": "apps.docked.active/view" } }
+    ],
+    "lookup": [
+      ["apps", [0, ["__KEY", "apps"]]],
+      ["group foreach", [0, "apps", ["__KEY", "group foreach"]]],
+      ["apps/view", [0, "apps", "group foreach", 0]],
+      ["dock-view", [1, ["__KEY", "(gui) dock-view"]]],
+      [
+        "dock-view/marks.icons",
+        [1, "(gui) dock-view", ["__KEY", "/marks.icons <>"]]
+      ],
+      ["apps", [1, "(gui) dock-view", "/marks.icons <>", 0]],
+      [
+        "change-app",
+        [
+          1,
+          "(gui) dock-view",
+          "/marks.icons <>",
+          1,
+          ["__KEY", "(action) change-app"]
+        ]
+      ],
+      [
+        "update",
+        [
+          1,
+          "(gui) dock-view",
+          "/marks.icons <>",
+          1,
+          "(action) change-app",
+          ["__KEY", "update"]
+        ]
+      ],
+      [
+        "apps.docked.active",
+        [
+          1,
+          "(gui) dock-view",
+          "/marks.icons <>",
+          1,
+          "(action) change-app",
+          "update",
+          0
+        ]
+      ],
+      [
+        "apps.docked",
+        [
+          1,
+          "(gui) dock-view",
+          "/marks.icons <>",
+          1,
+          "(action) change-app",
+          "update",
+          2
+        ]
+      ],
+      [
+        "dock-view/encoding.hstack",
+        [1, "(gui) dock-view", ["__KEY", "/encoding.hstack <>"]]
+      ],
+      [
+        "dock-order",
+        [
+          1,
+          "(gui) dock-view",
+          "/encoding.hstack <>",
+          ["__KEY", "(linear) dock-order"]
+        ]
+      ],
+      [
+        "affects",
+        [
+          1,
+          "(gui) dock-view",
+          "/encoding.hstack <>",
+          "(linear) dock-order",
+          ["__KEY", "affects"]
+        ]
+      ],
+      [
+        "apps.docked",
+        [
+          1,
+          "(gui) dock-view",
+          "/encoding.hstack <>",
+          "(linear) dock-order",
+          "affects"
+        ]
+      ],
+      ["main-view", [2, ["__KEY", "(gui) main-view"]]],
+      ["main-view/marks", [2, "(gui) main-view", ["__KEY", "/marks <>"]]],
+      ["apps.docked.active/view", [2, "(gui) main-view", "/marks <>"]]
+    ]
+  },
+  "case-study-slides-figma": {
+    "yaml": [
+      { "(linear) slide-order": { "affects": "slides" } },
+      {
+        "(action) next-slide": {
+          "update": ["slides.current", "subset>", "slides"],
+          "directions": "slide-order"
+        }
+      },
+      {
+        "(gui) presentation-view": {
+          "/marks": "slides.current",
+          "/encoding.canvas": "(2D) slides/canvas"
+        }
+      }
+    ],
+    "lookup": [
+      ["slide-order", [0, ["__KEY", "(linear) slide-order"]]],
+      ["affects", [0, "(linear) slide-order", ["__KEY", "affects"]]],
+      ["slides", [0, "(linear) slide-order", "affects"]],
+      ["next-slide", [1, ["__KEY", "(action) next-slide"]]],
+      ["update", [1, "(action) next-slide", ["__KEY", "update"]]],
+      ["slides.current", [1, "(action) next-slide", "update", 0]],
+      ["slides", [1, "(action) next-slide", "update", 2]],
+      ["directions", [1, "(action) next-slide", ["__KEY", "directions"]]],
+      ["slide-order", [1, "(action) next-slide", "directions"]],
+      ["presentation-view", [2, ["__KEY", "(gui) presentation-view"]]],
+      [
+        "presentation-view/marks",
+        [2, "(gui) presentation-view", ["__KEY", "/marks"]]
+      ],
+      ["slides.current", [2, "(gui) presentation-view", "/marks"]],
+      [
+        "presentation-view/encoding.canvas",
+        [2, "(gui) presentation-view", ["__KEY", "/encoding.canvas"]]
+      ],
+      ["slides/canvas", [2, "(gui) presentation-view", "/encoding.canvas"]]
+    ]
+  },
+  "case-study-slides": {
+    "yaml": [
+      { "slides": { "group foreach": ["(gui) /view"] } },
+      {
+        "(gui) list-slides-view": {
+          "/marks <>": [
+            "slides/view",
+            {
+              "(action) change-slide": {
+                "update": ["slides.open.active", "subset>", "slides.open"]
+              }
+            }
+          ],
+          "/encoding.vstack <>": {
+            "(linear) slide-order": { "affects": "slides" }
+          }
+        }
+      },
+      { "(gui) edit-view": { "/marks <>": "slides.active/view" } }
+    ],
+    "lookup": [
+      ["slides", [0, ["__KEY", "slides"]]],
+      ["group foreach", [0, "slides", ["__KEY", "group foreach"]]],
+      ["slides/view", [0, "slides", "group foreach", 0]],
+      ["list-slides-view", [1, ["__KEY", "(gui) list-slides-view"]]],
+      [
+        "list-slides-view/marks",
+        [1, "(gui) list-slides-view", ["__KEY", "/marks <>"]]
+      ],
+      ["slides/view", [1, "(gui) list-slides-view", "/marks <>", 0]],
+      [
+        "change-slide",
+        [
+          1,
+          "(gui) list-slides-view",
+          "/marks <>",
+          1,
+          ["__KEY", "(action) change-slide"]
+        ]
+      ],
+      [
+        "update",
+        [
+          1,
+          "(gui) list-slides-view",
+          "/marks <>",
+          1,
+          "(action) change-slide",
+          ["__KEY", "update"]
+        ]
+      ],
+      [
+        "slides.open.active",
+        [
+          1,
+          "(gui) list-slides-view",
+          "/marks <>",
+          1,
+          "(action) change-slide",
+          "update",
+          0
+        ]
+      ],
+      [
+        "slides.open",
+        [
+          1,
+          "(gui) list-slides-view",
+          "/marks <>",
+          1,
+          "(action) change-slide",
+          "update",
+          2
+        ]
+      ],
+      [
+        "list-slides-view/encoding.vstack",
+        [1, "(gui) list-slides-view", ["__KEY", "/encoding.vstack <>"]]
+      ],
+      [
+        "slide-order",
+        [
+          1,
+          "(gui) list-slides-view",
+          "/encoding.vstack <>",
+          ["__KEY", "(linear) slide-order"]
+        ]
+      ],
+      [
+        "affects",
+        [
+          1,
+          "(gui) list-slides-view",
+          "/encoding.vstack <>",
+          "(linear) slide-order",
+          ["__KEY", "affects"]
+        ]
+      ],
+      [
+        "slides",
+        [
+          1,
+          "(gui) list-slides-view",
+          "/encoding.vstack <>",
+          "(linear) slide-order",
+          "affects"
+        ]
+      ],
+      ["edit-view", [2, ["__KEY", "(gui) edit-view"]]],
+      ["edit-view/marks", [2, "(gui) edit-view", ["__KEY", "/marks <>"]]],
+      ["slides.active/view", [2, "(gui) edit-view", "/marks <>"]]
+    ]
+  },
+  "case-study-video-editor": {
+    "yaml": [
+      { "(linear) timeline": { "affects": "timestamps", "cover": "videos" } },
+      { "timestamps": { "subset": "playhead" } },
+      { "tracks": { "group": "videos" } },
+      {
+        "(gui) editor-view": {
+          "/marks.hline <>": "timestamps",
+          "/encodings.hstack <>": "timeline",
+          "/marks.rectangles <>": "videos",
+          "/marks.cluster <>": "tracks",
+          "/marks.hitboxes <>": "move-video"
+        }
+      },
+      {
+        "(action) move-video": {
+          "update": ["timeline", "cover>", "videos.selected"],
+          "directions": "timeline"
+        }
+      }
+    ],
+    "lookup": [
+      ["timeline", [0, ["__KEY", "(linear) timeline"]]],
+      ["affects", [0, "(linear) timeline", ["__KEY", "affects"]]],
+      ["timestamps", [0, "(linear) timeline", "affects"]],
+      ["cover", [0, "(linear) timeline", ["__KEY", "cover"]]],
+      ["videos", [0, "(linear) timeline", "cover"]],
+      ["timestamps", [1, ["__KEY", "timestamps"]]],
+      ["subset", [1, "timestamps", ["__KEY", "subset"]]],
+      ["playhead", [1, "timestamps", "subset"]],
+      ["tracks", [2, ["__KEY", "tracks"]]],
+      ["group", [2, "tracks", ["__KEY", "group"]]],
+      ["videos", [2, "tracks", "group"]],
+      ["editor-view", [3, ["__KEY", "(gui) editor-view"]]],
+      [
+        "editor-view/marks.hline",
+        [3, "(gui) editor-view", ["__KEY", "/marks.hline <>"]]
+      ],
+      ["timestamps", [3, "(gui) editor-view", "/marks.hline <>"]],
+      [
+        "editor-view/encodings.hstack",
+        [3, "(gui) editor-view", ["__KEY", "/encodings.hstack <>"]]
+      ],
+      ["timeline", [3, "(gui) editor-view", "/encodings.hstack <>"]],
+      [
+        "editor-view/marks.rectangles",
+        [3, "(gui) editor-view", ["__KEY", "/marks.rectangles <>"]]
+      ],
+      ["videos", [3, "(gui) editor-view", "/marks.rectangles <>"]],
+      [
+        "editor-view/marks.cluster",
+        [3, "(gui) editor-view", ["__KEY", "/marks.cluster <>"]]
+      ],
+      ["tracks", [3, "(gui) editor-view", "/marks.cluster <>"]],
+      [
+        "editor-view/marks.hitboxes",
+        [3, "(gui) editor-view", ["__KEY", "/marks.hitboxes <>"]]
+      ],
+      ["move-video", [3, "(gui) editor-view", "/marks.hitboxes <>"]],
+      ["move-video", [4, ["__KEY", "(action) move-video"]]],
+      ["update", [4, "(action) move-video", ["__KEY", "update"]]],
+      ["timeline", [4, "(action) move-video", "update", 0]],
+      ["videos.selected", [4, "(action) move-video", "update", 2]],
+      ["directions", [4, "(action) move-video", ["__KEY", "directions"]]],
+      ["timeline", [4, "(action) move-video", "directions"]]
+    ]
+  }
+}

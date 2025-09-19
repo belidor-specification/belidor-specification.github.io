@@ -1,0 +1,53 @@
+[
+  {
+    "inputs": ["case-study-calendar", "case-study-video-editor"],
+    "analogy": [
+      {
+        "days": ["tracks", false],
+        "time": ["timeline", false],
+        "events": ["videos", false],
+        "week-view": ["editor-view", false],
+        "timestamps": ["timestamps", false],
+        "timestamps.now": ["playhead", false],
+        "move-event": ["move-video", false],
+        "events.selected": ["videos.selected", false]
+      },
+      []
+    ]
+  },
+  {
+    "inputs": ["case-study-figma", "case-study-slides-figma"],
+    "analogy": [
+      {
+        "prototype-links": ["slide-order", false],
+        "navigate-prototype": ["next-slide", false],
+        "prototype-window": ["presentation-view", false],
+        "frames.in-prototype": ["slides", false],
+        "frames": ["slides", false],
+        "frames.in-prototype.current": ["slides.current", false],
+        "canvas": ["slides/canvas"]
+      },
+      []
+    ]
+  },
+  {
+    "inputs": ["case-study-cad", "case-study-web-browser"],
+    "analogy": [
+      {
+        "tabs-view": ["tabs-view", false],
+        "files.active/view": ["webpages.open.active/view", false]
+      },
+      []
+    ]
+  },
+  {
+    "inputs": ["case-study-slides", "case-study-ipad"],
+    "analogy": [
+      {
+        "edit-view": ["main-view", false],
+        "list-slides-view": ["dock-view", false]
+      },
+      []
+    ]
+  }
+]
